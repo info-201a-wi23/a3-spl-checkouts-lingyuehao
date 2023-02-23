@@ -3,84 +3,96 @@ title: "A3: SPL Library Checkouts"
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+library(knitr)
+library(ggplot2)
+library(dplyr)
+
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+
+source("chart1_example.R")
+source("chart2_example.R")
+source("chart 3.R")
+source("summary.R")
+```
+
+## By Lingyue Hao
+
 ### Introduction
 
-An introduction of the data and a description of the trends/books/items you are choosing to analyze (and why!)
+This dataset records a large number of items (typically including a variety of books, magazines, audiobooks, etc.) that were checked out at least 10 times per month from 2017 to January 2023 at the Seattle Public Library. It also contains the year and month of the loan, the platform used by the user, the name of the book, the author, and many other details. The questions I will focus on and analyze are：
+
+1. What are the trends in book and ebook checkouts at Seattle Public Library from 2017 to January 2023, and what exactly are the reasons for this trend?
+
+2. How has the average number of books, e-books, audiobooks, and videodisc checked out at Seattle Public Library changed over time from 2017 to January 2023? What trends can we infer from this information?
+
+3. What percentage of Seattle Public Library users used different checkout types from 2017 to January 2023? What can we tell about which lending platforms are more popular with people in the Seattle public library?
+
+Through these trends, we can see if e-books have become an increasingly dominant way for people to read in recent years and how the number of book and eBook checkouts has changed over the COVID-19 period. This information can help the library to better coordinate and plan the expected reserves of different kinds of items in the future according to the changes in supply and demand. Also, when we compare which checkout platforms are more popular with Seattle library users, the corresponding platforms can be used to make changes to the company's marketing strategy in the region.
+
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+This dataset provides valuable information, including the most recent data available up to January 2023. During the period from 2017 to January 2023, the average number of checkouts for an eBook from the Seattle Public Library was 25.1, while for books it was 20.9. One particularly popular book during this time period in both the eBook and book categories at the Seattle Public Library was "Educated: A memoir" by Tara Westover. This suggests that the book has been highly sought after by library patrons in Seattle in recent years. Furthermore, the total number of eBooks checked out by the Seattle Public Library in the years 2018-2021 were 24,328, 30,653, 41,944, and 41,761, respectively.
 
-These will likely be calculated using your DPLYR skills, answering questions such as:
-
-- What is the average number of checkouts for each item?
-- What is the month or year with the most/least checkouts for a book that you're interested in?
-- What is the month or year with the most/least checkouts for ebooks?
-- How has the number of print book checkouts changed over time?
-
-Feel free to calculate and report values that you find relevant.
 
 ### The Dataset
 
-- Who collected/published the data?  
+- Who collected/published the data? 
+
+The Seattle Public library collected this data and publish it on the "Seattle Open data" monthly.
+
+
 - What are the parameters of the data (dates, number of checkouts, kinds of books, etc.)?
-- How was the data collected or generated?  
-- Why was the data collected?  
-- What, if any, ethical questions do you need to consider when working with this data?  
+
+The parameters of this dataset include the type of item (digital, physical, etc.), the type of checkouts (OverDrive, Horizon, etc.), the type pf material (e-book, magazine, etc.), the number of checkouts, the date (including year and month) of checkouts, the title of the checkout items (physical or electronic), and the creator of the items (physical or electronic).
+
+
+- How was the data collected or generated? 
+
+This dataset includes monthly counts of physical and electronic items checked out by title from the Seattle Public Library. The Seattle Public Library staff generated this dataset by checking the number of items checked out in the background or system. In addition, the library's data collectors counted the date of each checkout, item type, item name, and many other different parameters.
+
+
+- Why was the data collected?
+
+Seattle Public Library uses checkout data to inform their collection development process, which involves selecting and purchasing new materials such as books, e-books, audiobooks, and more. By analyzing which items are most frequently checked out, library can identify popular types of materials and authors, and make informed decisions about which items to add to their collections. In addition, checkout data can help library better allocate resources, such as staffing and inventory, to better meet the needs of their patrons.
+
+
+- What, if any, ethical questions do you need to consider when working with this data?
+
+We should be aware of potential race or gender bias that may be present in the data, as we do not know the gender and race of the borrowers. We cannot be sure that every library user's data is included in this dataset. Therefore, it is important for library staff to be transparent about how data are collected and used. This includes providing clear explanations of the methods used to collect the data and ensuring that the public has access to the final accurate and complete data set. It is even more important that libraries use the data to identify potential impacts on library users and the broader community, and to better serve library users.
+
+
 - What are possible limitations or problems with this data?   (at least 200 words)
+
+This dataset may have some limitations and problems. First, library administrators cannot guarantee that they have counted all the information about item checkout, nor can they guarantee that there is data loss or differential statistics during the data collection process. In addition, the dataset does not include specific transaction dates, and we can only get the year and month information from the dataset. With this limitation, we cannot compare the data in the same month to find out whether there may be a pattern in the number of checkouts in different periods within a month. Since the dataset only counts items that have been checked out at least ten times in a month, we lose some information about items that are very unpopular with users. This prevents us from making reasonable deletions and redistributions for new materials to be prepared in the future. In addition, based on the existing data set, we cannot distinguish which types or forms of items are more popular with men or women, with children or adults, etc. Because we do not have more detailed information about the users, we cannot distinguish which types or forms of items are more popular. This is because we do not have more detailed information about the users. Of course, the researcher must ask for the user's consent in advance before taking personal information about the user (including gender, age, race, etc.). If we had these additional parameters in our dataset, researchers could find more valuable information from them.
 
 
 ### First Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The first chart that you will create and include will show the trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, warning = FALSE, code = readLines("chart1_example.R")}
+```{r, chart1_example, echo = FALSE, message = FALSE}
+c1
 ```
+
+This is a bar chart. The reason I created this visualization is that it helps us to compare very directly the trend of checkout totals for the two item types, book and eBook, over the last few years. We can get a lot of useful information from it. Through this image we can see that the total number of checkouts for Ebook has steadily and consistently increased from 2017 to 2022. Between 2017 and 2019, the total number of checkouts for the item type Book remains at a high level. But in 2019, the total number of checkouts for book decreases a lot. This is most likely due to the COVID period, when security concerns limited people's access to and desire for physical books. After this year, the total checkout of books is increasing year by year, but it is still unknown whether it will return to the pre-epidemic level. Based on this image, we can infer that 2017 to 2020 is an era of eBook emergence. People who are busy with work and commuting may choose eBooks more often for reading purposes.
+
 
 ### Second Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The second chart that you will create and include will show another trend over time of your variable/topic/interest. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - For example, two books, or 5 different mediums
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear - legend title
-In your .Rmd file, make sure to describe why you included the chart, and what patterns emerged
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, chart2_example, echo = FALSE, message = FALSE}
+c2
 ```
 
-### Your Choice
+This is a relatively complex line plot. It depicts a trend graph of the average number of checkouts for four types of item (including audiobook, book, ebook, and videodisc) between 2017 and January 2023. The reason I included this visualization is that we can clearly compare the trend of the average number of checkouts between years for different types of items. We can infer some information from this. In general, the average number of checkouts for both categories of item, eBook and audiobook, has increased over the time range of 2017 to January 2023, with the average number of checkouts for audiobook in particular increasing relatively significantly. This indicates that the number of people who like to read eBooks or read books through modern devices is increasing, which may be a precursor of an era belonging to eBooks. In contrast, the average number of checkouts for videodisc is generally on the decline. This may be related to the higher requirements of the item for the device. As one of the most traditional items offered by libraries, the average checkout for videodisc has not changed significantly, but has fluctuated slightly. As it stands, although e-readers are more portable than traditional books, there are still many people who enjoy reading who enjoy the pleasure of physical books rather than the more portable e-books. What we can also find in the graph is that in 2020 to 2021, when the impact of COVID is most severe, the average number of checkouts for all the categories of items listed in the graph decreases in varying degrees. This indicates that the loss brought by OCVID to Seattle Public Library during that period was serious.
 
-The last chart is up to you. It could be a line plot, scatter plot, histogram, bar plot, stacked bar plot, and more. Here are some requirements to help guide your design:
 
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
+### Third Chart
 
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart2_example.R")}
+```{r, chart 3, echo = FALSE, message = FALSE}
+c3
 ```
+
+This is a pie chart showing the approximate percentage of five different checkout platforms used by users of Seattle Public Library between 2017 and January 2023. I included this graph because it clearly shows which platform Seattle Public Library users usually prefer to use to complete checkouts. This information can help patrons find better and more popular platforms. The graph clearly shows that Horizon and OverDrive are the two providers that are more popular with Seattle Public Library patrons. From 2017 to January 2023, Horizon and OverDrive accounted for more than 95 percent of all patron check-outs. Horizon is a large library management system that provides tools for managing library materials. OverDrive is a digital content platform that provides access to e-books, audiobooks, and other digital media. We can infer that the product services and subscription services offered by the two service providers, Horizon and OverDrive, are more recognized and supported by Seattle Public Library users. 
+
 
 

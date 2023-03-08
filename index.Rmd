@@ -33,7 +33,7 @@ Through these trends, we can see if e-books have become an increasingly dominant
 
 ### Summary Information
 
-This dataset provides valuable information, including the most recent data available up to January 2023. During the period from 2017 to January 2023, the average number of checkouts for an eBook from the Seattle Public Library was 25.1, while for books it was 20.9. One particularly popular book during this time period in both the eBook and book categories at the Seattle Public Library was "Educated: A memoir" by Tara Westover. This suggests that the book has been highly sought after by library patrons in Seattle in recent years. Furthermore, the total number of eBooks checked out by the Seattle Public Library in the years 2018-2021 were 24,328, 30,653, 41,944, and 41,761, respectively.
+This dataset provides valuable information, including the most recent data available up to `r recent_date`. During the period from 2017 to January 2023, the average number of checkouts for an eBook from the Seattle Public Library was `r ave_ebook`, while for books it was `r ave_book`. One particularly popular book during this time period in both the eBook and book categories at the Seattle Public Library was `r title_most_checkouts_ebook$Title[which.max(title_most_checkouts_ebook$total_checkouts)]`. This suggests that the book has been highly sought after by library patrons in Seattle in recent years. Furthermore, the total number of eBooks checked out by the Seattle Public Library in the years 2018-2021 were `r ebook_18`, `r ebook_19`, `r ebook_20`, and `r ebook_21`, respectively. 
 
 
 ### The Dataset
